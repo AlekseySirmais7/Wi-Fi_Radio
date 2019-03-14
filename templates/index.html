@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+   <head>
+     <title>{{ title }}</title>
+
+     <link rel="stylesheet" href="/static/bootstrap.css">
+
+    <script type="text/javascript">
+   		setTimeout(location.reload.bind(location), {{leng}} ); </script>
+   </head>
+   <body style="background-image: url(static/radio_fon-min.png)">
+ 
+<div class="text-center" style="width: 50% ;  background-color: RGB(249, 232, 177); border-radius: 30px; margin: auto; ">
+
+<h1>Wi-Fi Radio</h1>
+
+
+<h1> {{ title_song }}</h1>
+      <h2> The length of the song: {{ song_min }} minute(s)  {{song_sec}} second(s)</h2>
+      
+	<h1> <a href="http://127.0.0.1"> <button type="button" class="btn btn-warning" 
+		style="width: 30%; height: 60px;padding-top: 10px;"> <h2> New song </h2></button></a>  </h1>
+
+
+<h4 style="padding-bottom: 15px; padding-top: 10px">The date and time on the server is: {{ time }}</h4>
+</div>
+
+      
+     
+   <iframe src={{src_song}} allow="autoplay"  style="display:none" id="iframeAudio">
+</iframe> 
+      
+
+
+	<script>  var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+    if(!isChrome){
+      $('#iframeAudio').remove()
+    }
+  else{
+     $('#playAudio').remove() //just to make sure that it will not have 2x audio in the background 
+  }
+
+</script>
+   </body>
+</html>
